@@ -1,0 +1,347 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    max-height: 100%; /*para web responsive*/
+}
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #ffffff;
+}
+#header{
+    background-color: #EBDECE;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+#menu{
+    background-color: rgb(212, 194, 172);
+    border: 2px solid rgb(140, 119, 97);
+    border-radius: 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin: 5px;
+}
+.buscarbox input{
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 0;
+    padding: 0;
+    border-radius: 40px;
+    border: 0;
+    padding-right: 50px;
+    transition: 0.8s ease;
+}
+.buscarbox input:hover{
+    width: 150px;
+    padding-left: 10px;
+    outline: none;
+}
+.fas{
+color: rgb(24, 0, 47);
+}
+a:hover{
+    color: rgb(0, 0, 0);
+}   
+#sidebar{
+    grid-area: sidebar;/* se asigna nombre a contenedor */
+    display: flex;
+    flex-direction: column;/* se define dirección en forma columna*/
+    justify-content: center; 
+    align-items: center;
+    background-color: rgba(217, 195, 161, 0.6);
+    backdrop-filter: blur(5px);
+}
+/* se define ancho y altura contenedor para ajustar a vista de dispositivo actual*/
+iframe{
+    max-width: 100%;
+    height: auto;
+}
+section article{
+    background-color:rgb(212, 194, 172);
+    backdrop-filter: blur(5px);
+    margin: 30px;
+}
+/* seccion pie de pagina*/
+#footer{
+    grid-area: footer;/* se asigna nombre a contenedor */
+    padding-top: 20px;
+    border:2px solid rgb(128, 32, 0);
+    border-radius: 2px;
+    clear:both;
+    background-color: #EBDECE;
+    backdrop-filter: blur(20px);
+    justify-content: center;
+    align-items: center;
+}
+    #redes a {
+    padding: 5px;
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
+}
+#redes a i:hover{
+    transform: scaleX(1.5);
+    color: rgb(77, 2, 143);
+}
+/* Estilos iconos fontawesome */
+i[class^="fa"]{
+    color:rgb(34, 0, 0);
+    font-size: 18px;
+}
+    
+/*iconos fontawesome BAR SOCIAL*/
+i[class^="fab"]{
+    color:rgb(51, 0, 21);
+    font-size: 30px;
+    border:1px solid transparent;
+    margin:0px;
+}
+    
+/* ultimos cambios hechos a icono hamburguesa */
+.fa-bars{
+    font-size: 30px !important;
+    color:black !important;
+}
+/* nuevo estilo menu hamburguesa */.openmenu {
+    display: none;
+    cursor: pointer;
+    font-size: 2 rem;
+}
+/* Se define estilos al contenedor grid en general vista PC a 3 COLUMNAS.*/
+.page{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+}
+@media (min-width: 600px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+    .cards { grid-template-columns: repeat(3, 1fr); }
+}
+/* seccion CSS GRID DISEÑO WEB RESPONSIVE*/
+    /* Se define estilos al contenedor grid en general vista PC*/
+    #grid-container > * {
+        text-align: center;
+        box-shadow: 1px 1px 7px 0px rgba(0,0,0,0.75);
+    }
+    /*-----SECCION VISTA DE TABLETS   2 COLUMNAS------*/
+@media (max-width:1024px){
+    #grid-container{
+        grid-template: 
+        "header header" 170px
+        "nav slide" 150px
+        "nav slide" 150px
+        "sidebar sidebar" 650px
+        "footer footer" 100px /
+        250px 450px; 
+        font-size: 75%;/*Cambia el tamaño de la letra*/
+    }
+    #menu{
+        background-color: #EBDECE;
+        border-radius: 22px;
+        display: block;
+        padding: 45px;
+        margin:40px;
+        height: auto;
+        text-align: center;
+    }
+    #slide-inner{
+        display: flex;
+        flex-direction: column;/* cambia la forma de dirección de fila a col*/
+        justify-content: space-between;
+        align-items:center;
+        flex-wrap: wrap;/*se define el auto ajuste de ancho dispostivo pasa a sgte. linea*/
+        max-width:100%;
+    }
+    .secciones{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items:center;
+        flex-wrap: wrap;
+        max-width: 100%;
+        height: auto;
+        border: 1px solid black;  
+    }
+    iframe{
+        max-width: 100%;
+        height: auto;
+    }
+    .buscarbox{
+        display:block;
+        padding: 5px;
+    }
+}
+/*----- SECCION VISTA DE CELULAR  UNA COLUMNA------*/
+@media (max-width:640px){
+    #grid-container{
+        grid-template: 
+        "header" 150px
+        "nav" 50px
+        "slide-inner" 1120px
+        "sidebar" 800px
+        "footer" 100px /
+        500px; 
+        font-size: 60%;
+    }
+    /*Nota: la barra <nav> se programará con javascript_ por medio de funciones en boton hamburguesa*/
+    #menu{
+        display: none;/* se oculta contenedor nav opciones*/
+    } 
+    /*se define que aparezca el menu hamburguesa en la parte superior*/
+    .openmenu{
+    display: block;
+    position:absolute;
+    top:10px;
+    right:120px;
+    z-index:99;/* se define capa encima del texto de contenido HTML*/
+    cursor: pointer;
+    }
+    #slide{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    height: 27%;
+    }
+    .secciones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 50%;
+    height: auto;
+    border: 1px solid black; 
+    }
+    iframe{
+    max-width: 100%;
+    height: auto;
+    }
+    .buscarbox{
+    display:none;
+    }
+}
+
+
+/*estilos carrusel*/
+.slide {
+    position: relative;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
+    margin-top: 26px;
+}
+.slide-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: calc( 300px + 3em);
+}
+.slide-open:checked + .slide-item {
+    position: static;
+    opacity: 100;
+}
+.slide-item {
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: opacity 0.6s ease-out;
+    transition: opacity 0.6s ease-out;
+}
+.slide-item img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+.slide-control {
+    background: rgba(0, 0, 0, 0.28);
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-size: 40px;
+    height: 40px;
+    line-height: 35px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    cursor: pointer;
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    text-align: center;
+    width: 40px;
+    z-index: 10;
+}
+.slide-control.prev {
+    left: 2%;
+}
+.slide-control.next {
+    right: 2%;
+}
+.slide-control:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: #aaaaaa;
+}
+#slide-1:checked ~ .control-1,
+#slide-2:checked ~ .control-2,
+#slide-3:checked ~ .control-3 {
+    display: block;
+}
+.slide-indicador {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+}
+.slide-indicador li {
+    display: inline-block;
+    margin: 0 5px;
+}
+.slide-circulo {
+    color: #828282;
+    cursor: pointer;
+    display: block;
+    font-size: 35px;
+}
+.slide-circulo:hover {
+    color: #aaaaaa;
+}
+#slide-1:checked ~ .control-1 ~ .slide-indicador 
+    li:nth-child(1) .slide-circulo,
+#slide-2:checked ~ .control-2 ~ .slide-indicador 
+    li:nth-child(2) .slide-circulo,
+#slide-3:checked ~ .control-3 ~ .slide-indicador 
+    li:nth-child(3) .slide-circulo {
+    color: #428bca;
+}
+#titulo {
+    width: 100%;
+    position: absolute;
+    padding: 0px;
+    margin: 0px auto;
+    text-align: center;
+    font-size: 27px;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Open Sans', sans-serif;
+    z-index: 9999;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), 
+        -1px 0px 2px rgba(255, 255, 255, 0);
+}
+
